@@ -2,16 +2,16 @@ pipeline {
   agent {
     docker {
       image 'abhishekf5/maven-abhishek-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock --pull-algorithm=always' // mount Docker socket to access the host's Docker daemon
      }
   }  
-  stages {
-    stage('Build') {
-      steps {
-        sh 'docker ps -a'
+  //stages {
+   //stage('Build') {
+      //steps {
+        //sh 'docker ps -a'
         //this will pull the image
-      }
-    }
+     // }
+    //}
     stage('Checkout') {
       steps {
         sh 'echo passed'
