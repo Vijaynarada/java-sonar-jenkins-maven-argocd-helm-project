@@ -6,19 +6,19 @@ pipeline {
      }
   }  
   stages {
-    stage('Checkout') {
-      steps {
-        sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/Vijaynarada/java-sonar-jenkins-maven-argocd-helm-project.git'
-      }
-    }
-  stages {
     stage('Build') {
       steps {
         sh 'docker pull abhishekf5/maven-abhishek-docker-agent:v1'
         //this will pull the image
       }
     }
+    stage('Checkout') {
+      steps {
+        sh 'echo passed'
+        //git branch: 'main', url: 'https://github.com/Vijaynarada/java-sonar-jenkins-maven-argocd-helm-project.git'
+      }
+    }
+  
     stage('Build and Test') {
       steps {
         // build the project and create a JAR file
