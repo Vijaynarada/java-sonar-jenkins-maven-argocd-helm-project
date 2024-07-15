@@ -4,19 +4,19 @@ pipeline {
       image 'abhishekf5/maven-abhishek-docker-agent:v1'
       args '--user root'
      }
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'docker pull abhishekf5/maven-abhishek-docker-agent:v1'
-        //this will pull the image
-      }
-    }
+  }  
   stages {
     stage('Checkout') {
       steps {
         sh 'echo passed'
         //git branch: 'main', url: 'https://github.com/Vijaynarada/java-sonar-jenkins-maven-argocd-helm-project.git'
+      }
+    }
+  stages {
+    stage('Build') {
+      steps {
+        sh 'docker pull abhishekf5/maven-abhishek-docker-agent:v1'
+        //this will pull the image
       }
     }
     stage('Build and Test') {
